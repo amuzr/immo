@@ -1,0 +1,19 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+
+# Logs
+Logs
+*.Logs
+npm-debug.log*
+
+# Dependency directories
+node_modules
+bower_components
+
+# Optional npm cache directory
+.npm
+
+# VS Code
+.vscode
