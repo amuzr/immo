@@ -17,3 +17,6 @@ bower_components
 
 # VS Code
 .vscode
+
+# Build directories
+src/www/js
