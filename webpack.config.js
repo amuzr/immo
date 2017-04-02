@@ -1,28 +1,28 @@
 const webpack = require('webpack');
 const path = require('path');
+const debug = process.env.NODE_ENV !== "production";
 
 module.exports = {
   context: __dirname + "/src",
-  entry: './app/app.js',
+  entry: path.join(__dirname, 'src/app/router.js'),
+  devtool: debug ? "inline-sourcemap" : null,
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules)/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015', 'stage-1']
+    rules: [{
+      test: /\.js$/,  //All .js files
+      exclude: [path.resolve(__dirname, 'node_modules')],
+      use: [
+        {
+          loader: "babel-loader",
+          query: {
+            presets: ['react', 'es2015', 'stage-1']
+          }
         }
-      },
-      {
-        text: /\.json$/,
-        loader: 'json-loader'
-      }
-    ]
+      ]
+    }]
   },
   output: {
-    filename: 'client.min.js',
-    path: __dirname + "/js/"
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'src/www/js/')
   },
   plugins: debug ? [] : [
     new webpack.LoaderOptionsPlugin({
@@ -34,8 +34,6 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       mangle:false,
       sourcemap:false
