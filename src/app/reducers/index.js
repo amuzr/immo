@@ -1,4 +1,8 @@
 import { combineReducers } from "redux";
-import * as reducers from "./";
+import pages from "./pages";
+import posts from "./posts";
 
-export default combineReducers(reducers);
+export default combineReducers({
+  pages,
+  posts
+});

@@ -15,9 +15,6 @@ module.exports = {
         },
         {
           loader: "babel-loader",
-          query: {
-            presets: ['react', 'es2015', 'stage-1']
-          }
         }
       ]
     }],
@@ -30,7 +27,8 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/js/',
     hot: true,
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   },
   output: {
     filename: 'bundle.js',
