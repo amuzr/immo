@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Main extends Component {
+export default class About extends Component {
   componentWillMount() {
     console.log('main !!');
   }
@@ -8,7 +8,7 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        hello
+        About ~
       </div>
     );
   }

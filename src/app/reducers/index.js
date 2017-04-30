@@ -1,15 +1,4 @@
-import { resolve, reject } from 'redux-simple-promise';
+import { combineReducers } from "redux";
+import * as reducers from "./";
 
-const INITIAL_STATE = { all: {} };
-
-export default function (state = INITIAL_STATE, action) {
-    switch (action.type) {
-      case resolve('FETCH'): {
-        const data = action.data;
-        return { ...state, all: data };
-      }
-
-      default:
-        return state;
-  }
-}
+export default combineReducers(reducers);

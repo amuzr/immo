@@ -37,9 +37,7 @@ module.exports = {
     path: path.join(__dirname,'src/www/js/')
   },
   plugins: [
-    //Enables Hot Modules Replacement
     new webpack.HotModuleReplacementPlugin(),
-    //Allows error warnings but does not stop compiling. Will remove when eslint is added
     new webpack.NoEmitOnErrorsPlugin(),
     //Moves files
     new TransferWebpackPlugin([
